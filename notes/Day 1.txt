@@ -1,0 +1,20 @@
+important Points
+1. Public Static void main(String args[])
+	Static - java is object oriented programming language so to call main method we need object 
+	so we make the main method static so that jvm can call it without creating any object.
+	by making it static, it can accessed by using name directly.
+ 	hence static is used so that jvm can access the main function without creating an object.
+	
+	Public -> it can be accessed from anywhere.
+	String args[] -> it is used to send runtime arguments/command line arguments
+
+to run a program write 
+1. compile the program using 
+	javac "name_of_file(use same name as of the main class".java // not sure
+	java "same name"
+
+Final
+if a class is final -> it cannot be inherited
+     method	    -> it cannot be overloaded 
+     veriable	    -> it becomes a constant 
+
