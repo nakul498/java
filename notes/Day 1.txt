@@ -1,4 +1,4 @@
-important Points
+iLLmportant Points
 1. Public Static void main(String args[])
 	Static - java is object oriented programming language so to call main method we need object 
 	so we make the main method static so that jvm can call it without creating any object.
