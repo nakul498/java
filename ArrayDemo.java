@@ -4,7 +4,7 @@ class Employee
 	String name;
 	int emp_id, salary;
 	// constructor
-	employee(String n, int id, int sal)
+	Employee(String n, int id, int sal)
 	{ 
 		name = n;
 		emp_id = id; 
@@ -16,14 +16,14 @@ class ArrayDemo
 	//Implement a method which takes an array of Employee as an argument along with id
 	public Employee[] searchEmployee(Employee[]x, int id)
 	{
-		Employee[] Filtered = new Employee[x.length];
+		Employee[] filtered = new Employee[x.length];
 		int i = 0;
 		//filter the Employee having emp_id>id`
  		for(Employee emp:x)
 		{
-			if(emp emp_id >id)
+			if(emp.emp_id >id)
 			{ 
-				Filtered[i++]= emp;
+				filtered[i++]= emp;
 			}
 		}
 		return filtered;	
@@ -46,21 +46,22 @@ class ArrayDemo
 			String name = sc.nextLine();
 			System.out.println("\nEnter employee id :\t"); 
 			int id = sc.nextInt();
-			System.out.println("\n Enter Salary:\t);
+			System.out.println("\n Enter Salary:\t");
 			int sal = sc.nextInt();
+			sc.nextLine();
 			//creating Employee object
 			Employee e= new Employee(name,id,sal);
 			//store employee obect in Array
-			emp[i]=e;	
+			emps[i]=e;	
 		}
 		//call search Employee function
-		Array Demo ob= new ArrayDemo();
-		Employee[] e = ob.searchEmployee(emp, 1500)
+		ArrayDemo ob= new ArrayDemo();
+		Employee[] e = ob.searchEmployee(emps, 1500);
 		for(Employee emp:e)
 		{ 
 		 	if(emp==null)
 				break;
-			System.out.println(emp.name"\t" +emp.emp_id +"\t"+emp.salary);
+			System.out.println(emp.name + "\t" + emp.emp_id +"\t" + emp.salary);
 		}
 	}
 }

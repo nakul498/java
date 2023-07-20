@@ -2,7 +2,7 @@ import java.util.*;
 
 class check_default_value
 {	
-	static int b; // make it class varible using static 
+	static int b; // make it c \class varible using static 
 	public static void main(String args[])
 	{
 		int a;
