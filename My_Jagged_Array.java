@@ -34,4 +34,23 @@ Void printResult(double [][]m, String[]n)
 		System.out.prntln(n[i]+"\t\t");
 		for(int j=0;j<m[i].length;j++)
 		{
-			System.out.println(m[i][j
+			System.out.println(m[i][j]+"\t");
+			System.out.println(grade[i]);
+		}
+	}
+}
+private static char[] FindGrade(double [][]m)
+{
+	char[] grade=new char[m.length];
+	for(int i=0; i<m.length;i++)
+	{
+		double per=0.0, sum=0.0;
+		for(int j=0;j<m[i].lenght;j++)
+			sum=sum+m[i][j];
+			double total= 30*m[i].length;
+			per=(sum/total)*100;
+			if(per >=90)
+				grade[i]='0';
+	}
+	return(grades);
+}	
