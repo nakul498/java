@@ -1,0 +1,21 @@
+Spring Modules
+Spring core module -> core, bean, context, spEL(spring Expression language)
+	        	 \_   impo   _/
+
+Spring expresion language is used to manuplate object graph(value of objects) on runtime.
+*inversion of control * dependency injection
+
+
+AOP - aspect oriented programming allows us to define interceptor and point cuts to cleanly decouple the code.
+
+
+Data intefration layer -> JDBC ORM JMS OXM (provided api in this layer)
+JDBS -> provide a clean api to use jdbc without old tidious code.
+ORM -> intergration tool to use other ORM in our code easily.
+OXM-> used for object XML mapping 
+JMS -> java messaging services, to produce and consume messages.
+
+WEB Modlule -> web servelet portlet websocket (used to create a web applicaton.
+
+Test Module -> gives support to unit testing and integration testing, provide -> junit ,testng
+we can test code in isolation (small part of whole code)

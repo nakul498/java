@@ -1,12 +1,20 @@
-iLLmportant Points
+important Points
 1. Public Static void main(String args[])
+	main - function name which is initially executed.
+
 	Static - java is object oriented programming language so to call main method we need object 
 	so we make the main method static so that jvm can call it without creating any object.
 	by making it static, it can accessed by using name directly.
  	hence static is used so that jvm can access the main function without creating an object.
 	
 	Public -> it can be accessed from anywhere.
+	jvm is in program files in  c drive, by making fuction public jvm can access files on other locations.
 	String args[] -> it is used to send runtime arguments/command line arguments
+
+2. print() - prints and cursor will remain on the same line
+	println() - print and cursor will jump to next line.
+	printf() - it is overloaded only for string (can print string ony).
+to call above method we need to write Systerm.out before them.
 
 to run a program write 
 1. compile the program using 

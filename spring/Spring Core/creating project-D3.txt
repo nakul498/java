@@ -1,0 +1,100 @@
+Spring IoC container
+it is predefined program/component of spring framework which is responsible to creating object, hold object in memory, inject object in another object.
+it controls/maintain the complete life cycle of the object.
+we will provide information of bean(pojo) and configuration to IoC.
+
+ApplicationContext -> represents Spring IoC container.
+applicationContext Extends bean factory so it has all the features of bean factory.
+it is an interface so we cannot create object of it, we need to use its subclasses
+- AnnotationConfigApplicationContext -> it searches beans when we use annotiation.
+- ClasspathXMLAppliccd ationContext -> searches XML configuration from class path.
+- FileSustemXMLApplicationContext -> when we want to search configuration from a file. 
+
+ioc can perform setter injection (property injection) and custructor injection. 
+
+ioc container can inject 
+1. primitive type 
+2. collection type 
+3. reference type
+
+primitive type 
+
+1. first method to inject primitive type data
+<property name = "">
+	<value>value</value>
+</property>
+ 
+eg 
+<bean class="com.springcore.Student" name="student1">
+	<property name = "studentId"><value>22344</value</property>	
+	<property name = "studentName"><value>Nakul Mehra</value</property>
+	<property name = "studentAddress"><value>Pune</value></property>
+</bean>
+
+2. second method to inject primitive type data
+<property name = "" value = "" / >
+
+eg
+<bean class="com.springcore.Student" name="student1">	
+	<property name = "studentId" value="22344"/>
+	<property name = "studentName" value="Nakul Mehra"/>
+	<property name = "studentAddress" value="Pune"/>
+</bean>	
+
+3. third method to inject primitive type data
+
+<bean p: property : value / >
+eg
+<bean class="com.springcore.Student" name="student1" p:studentId="24344" p:studentName="Nakul Mehra" p:studentAddress="pune"/>
+
+Collection Types
+
+for List
+<bean>
+	<property name = "">
+	<list>
+		<value>10</value>
+		<value>100</value>
+		<value>1000</value>
+		<value>101</value>
+		<value>102</value>
+	</list>
+	</property>
+</bean>		
+----------------------------
+for set
+<bean>
+	<property name = "">
+	<set>
+		<value>10</value>
+		<value>1000</value>
+		<value>1000</value>
+		<value>101</value>
+		<value>102</value>
+	</set>
+	</property>
+</bean>	
+---------------------------
+
+Map
+<bean>
+	<property name = "">
+	<map>
+		<entry key = "java" value = "2month"/>
+		<entry key = "python" value = "1month"/>
+
+	</map>
+	</property>
+</bean>
+
+---------------------------
+properties
+
+<bean>
+	<property name = "">
+	<prop>
+		<prop key = "name">nakul</prop>
+		<prop key = "age">34</prop>
+	</prop>
+	</property>
+</bean>

@@ -1,0 +1,21 @@
+What is Spring?
+Spring is a dependency injection framework to make java aplication loosely coupled (easy to modefy)
+
+Spring framework makes the easy developmemnt of JaveEE application.
+
+it was developed by rod Joghnson in 2003
+
+Dependency injection
+
+it is a design pattern. 
+eg a class in dependent on other class so to create object of that class so in spring this part will be done by IOC as will be injected.
+we will use xml file or annotation in base class to show where we wana use dependency injection.
+inversion of control(IOC)
+
+
+UI Layer -> Bussiness/Services Layer -> Data Access Layer -> DB
+Product Controller -> Product Service  -> ProductDao -> DB
+
+dependency injection will create object of productDao in Product Service and object of product service in product Controller. 
+
+Spring JDBC - spring provide this api to intract with DB in data Access Layer
