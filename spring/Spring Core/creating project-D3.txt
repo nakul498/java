@@ -98,3 +98,18 @@ properties
 	</prop>
 	</property>
 </bean>
+
+Reference Types
+
+a
+<bean>
+	<property name = "">
+		<ref
+
+Reference Inject:
+b
+	<bean>
+		<property name = "">
+			<ref bean="">
+		</property>
+	</bean>		
