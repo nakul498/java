@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<!--		
+	<bean class="com.springcore.ci.Certi" name="cer">
+		<constructor-arg value="Android using kotlin" />
+	</bean>
+	<bean class="com.springcore.ci.Person" name = "person">
+		<constructor-arg value= "Nakul" />
+		<constructor-arg value= "12" type="int" />
+		<constructor-arg ref="cer" />
+	</bean> 
+	-->
+	
+	
+ <!-- Define the Certi bean -->
+    <bean id="cer" class="com.springcore.ci.Certi" c:name="Python Programming Language" />
+<!-- or <bean class="com.springcore.ci.Certi" name="cer" c:name ="python Programming Language">
+	</bean> -->
+    <!-- Define the Person bean with explicit constructor arguments -->
+    <bean id="person" class="com.springcore.ci.Person"
+          c:_0="Nakul"
+          c:_1="12"
+          c:_2-ref="cer">
+        <constructor-arg name="list">
+            <list>
+                <value>John</value>
+                <value>Doe</value>
+                <value>Smith</value>
+            </list>
+        </constructor-arg>
+    </bean>
+    
+    <!--
+   <bean class="com.springcore.ci.Addition" name="add">
+     <constructor-arg value="1"/>
+ 	 <constructor-arg value="2"/>
+    </bean>
+	as type is not defined here, As by default values are string so code will match values
+    with string method if exist and if not go with sequence to inject values
+	now in below bean we will specify the type so that it dirctly pick that fuction to inject values
+    below index is used to give value at other indexs, like here 2 will go in a 
+    -->
+	 <bean class="com.springcore.ci.Addition" name="add">
+	 	<constructor-arg value="1" type="int" index ="1"/>
+	 	<constructor-arg value="2" type="int" index = "0"/>
+	  </bean>
+    
+  	     
+
+
+
+	
+</beans>
