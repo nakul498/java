@@ -1,0 +1,32 @@
+Spring Bean Life Cycle method
+Spring provides two important method to every bean
+1. public void init() // initialization code loading config, connecting db, webservices etc
+2. public void destroy() // cleanup code 
+// we can use any name to these methods
+
+object created -> properties set -> init method -> we read and use the bean - > distroy method ->object distroyed 
+
+Configration Technique
+1. XML 
+2. Spring interface 
+3. Annotation
+
+1. 		<bean class = "com.springcore.lifecycle.Samosa" name = "s1" init-method="init" destroy-method="destroy">
+			<property name ="price" value="10" />
+		</bean>
+
+2.        public class Pepsi implements InitializingBean, DisposableBean {
+
+3   @PostConstruct, @PostDestroy 
+    dont work after java 11
+    we need add below dependecy
+    <dependency>
+    <groupId>javax.annotation</groupId>
+    <artifactId>javax.annotation-api</artifactId>
+    <version>1.3.2</version>
+    </dependency>
+
+    also need to add below in config file.
+    <context:annotation-config />
+
+    it enables all the annotations
