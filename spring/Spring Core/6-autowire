@@ -1,0 +1,46 @@
+Autowiring in spring 
+1. feature of spring framework in which spring container inject the dependencies automatically.
+2. autowire cant be used to inject primitive and string value. it works only with objects.
+
+injecting 
+1. manually -> <ref bean ""/>
+2. automatically 
+    - XML
+    - Annotations
+
+XML - Autowiring modes 
+        - no
+        - byName --- calls setter
+        - byType ----- Calls setter
+        - constructor ---- calls constructor
+        - autodetect (it is deprecated since spring 3)
+
+Annotation 
+    - @Autowired
+        - we can use autowire on property(field), setter method and also contructor method 
+        - it searches by type
+
+Autowiring Advatages
+- Automatic
+- less code 
+
+Autowiring Disadvantages
+- no control of programmer
+- it cant be used for primitive and string values
+
+@Qualifier - by default autowire will search bean by type, but if we have more then one bean with same type and we want to search bean by name then we use Qualifier annotation
+
+Stereotype Annotations - instesd of creating bean element in xml file
+eg <bean /> 
+we can use @Component annotation 
+eg
+@Component
+Class Student{
+
+}
+in XML(configration file) we need to tell student class is in which package 
+<context:component-scan base-package=""/>
+* it will create name of object as per name of object (in camel case)
+
+
+

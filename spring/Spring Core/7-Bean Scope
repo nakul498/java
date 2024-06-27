@@ -1,0 +1,19 @@
+Bean Scope
+1. Singleton (default)
+2. prototype
+3. request (web application specific) (http object )
+4. session (web applicatioin specific) (session object)
+5. globalsession
+
+Singleton - spring will create one object and then everytime you call, you get that same object
+<bean class="" name="" scope="" />
+by default scope is singleton
+
+prototype - spring will create new object of your bean, everytime you call.
+<bean class="" name="" scope="" />
+or
+@Complonent
+@Scope("")
+Class Student{
+    
+}
