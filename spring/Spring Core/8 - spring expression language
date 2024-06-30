@@ -1,0 +1,20 @@
+SpEL - Spring Expression Language
+Supports Parsing and executing expression with the help of the @Value annotations.
+eg 
+@Value("#{3+5}")
+@Value("#{8>6?88:55}") // all type of expression are allowed eg classes, variable, methods, constructors and objects 
+also Symbols - char, numeric,operator,keywords and special symbols which returns a value.
+
+to pass static method 
+T(class).method(param)
+eg 	@Value("#{T(java.lang.Math).sqrt(25)}")
+	private double z;
+    
+crating objects in expression    
+T(class).variable
+eg 	@Value("#{ new java.lang.String('Nakul Mehra')}")
+	private String name;
+
+passing boolean value
+eg @Value("#{true}")
+private boolean check;
