@@ -1,0 +1,21 @@
+Spring JDBC
+spring jdbc is a powerfull mechanism to connect to the database and execute Sql queries.
+
+java program <-> spring jdbc module <-> database
+                (JDBC template)
+
+JDBC is API to perform operation and database.
+
+problems of JDBC (old not spring jdbc)
+1. we need to write a lot of code.
+    - repeating all database code again and again.
+2. exception handling problem : checked exception
+    so you need to add try catch 
+
+Spring JDBC overcome above problems
+
+spring jdbc provide class jdbcTemplate which has all the important methods to perform operations with the database.
+
+JdbcTemplate methods  ->
+update() -> insert, update, delete....
+execute -> select queries.....

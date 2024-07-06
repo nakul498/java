@@ -1,0 +1,6 @@
+for getter and setters alt+shift+s then press r
+default contructor     alt+shift+s then press c
+parametized contructor  alt+shift+s then press o
+toString  alt+shift+s then press s
+to close all windows ctrl+shift+w
+to save all file ctrl+ shift+ s

@@ -10,6 +10,7 @@ class Employee
 		emp_id = id; 
 		salary = sal;
 	}
+	
 }
 class ArrayDemo
 {
@@ -21,7 +22,7 @@ class ArrayDemo
 		//filter the Employee having emp_id>id`
  		for(Employee emp:x)
 		{
-			if(emp.emp_id >id)
+			if(emp.emp_id == id)
 			{ 
 				filtered[i++]= emp;
 			}
@@ -37,16 +38,16 @@ class ArrayDemo
 		int size = sc.nextInt();
 		//creating array to store Employees 
 		Employee[] emps = new Employee[size];
-		sc.nextLine(); // to consume the \n of next int all the method apart fron next line leaves a \n in buffer")
+		sc.nextLine(); // to consume the \n of next int, all the method apart fron next line leaves a \n in buffer")
 		//Iteration for mutliple Employees 
 		for(int i = 0; i<size; i++)
 		{	
 			System.out.println("\n\t**********Employee"+(i+1)+"*******\n");
-			System.out.println("Enter the name of Employee:\t");
+			System.out.print("Enter the name of Employee:\t");
 			String name = sc.nextLine();
-			System.out.println("\nEnter employee id :\t"); 
+			System.out.print("\nEnter employee id :\t"); 
 			int id = sc.nextInt();
-			System.out.println("\n Enter Salary:\t");
+			System.out.print("\nEnter Salary:\t");
 			int sal = sc.nextInt();
 			sc.nextLine();
 			//creating Employee object
@@ -55,8 +56,10 @@ class ArrayDemo
 			emps[i]=e;	
 		}
 		//call search Employee function
+		System.out.println("enter id of employee you want to search");
+		int i= sc.nextInt();
 		ArrayDemo ob= new ArrayDemo();
-		Employee[] e = ob.searchEmployee(emps, 1500);
+		Employee[] e = ob.searchEmployee(emps, i);
 		for(Employee emp:e)
 		{ 
 		 	if(emp==null)
