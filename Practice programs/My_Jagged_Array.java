@@ -1,4 +1,4 @@
-import java.util.*
+import java.util.*;
 class My_Jagged_Array
 { 
 	public static void main(String [] args){
@@ -26,8 +26,8 @@ class My_Jagged_Array
 }
 Void printResult(double [][]m, String[]n)
 {
-	char grade[]=find grade(m);
-	System.out.println(\n\tResult - Jan 2021");
+	char grade[] =FindGrade(m);
+	System.out.println("\n\tResult - Jan 2021");
 	System.out.println("\t -------------------------------------");
 	for(i=0;i<m.length;i++)
 	{
