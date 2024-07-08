@@ -10,9 +10,11 @@ class randomCheck{
         al.add(0,3);
         al.add(4,3);
         al.remove(2);
+        
         for(int x: al){
-         sum = sum+x;
+            System.out.println(x);
         }
-        System.out.println(sum);
+        System.out.println(al.get(2));
+     
     }
 }
