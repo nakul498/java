@@ -34,7 +34,7 @@ public class App
 //        System.out.println("data changed "+result);
         
      Student student = new Student();
-     student.setId(456);
+     student.setId(256);
      int result = studentDao.delete(student);
       System.out.println("data deleted "+result);
         

@@ -1,0 +1,5 @@
+Selecting Data using Spring JDBC
+public T queryForObject( String sql, RowMappper<T> rowMapper, Object args)
+public List<T> query (String sql, RowMapper<T> rowMapper)
+T is Object
+row mappper -> converts reult set to object.
