@@ -1,5 +1,16 @@
 Selecting Data using Spring JDBC
+for selecting single row - >
 public T queryForObject( String sql, RowMappper<T> rowMapper, Object args)
+
+for selecting multiple rows
 public List<T> query (String sql, RowMapper<T> rowMapper)
 T is Object
-row mappper -> converts reult set to object.
+rowRowMappper<T> rowMapper -> converts rult set to object.
+
+RowMapper 
+    resultSetObject                     classObject
+---------------------> row Mapper ------------------------>
+
+it is interface so we need to write implementation of row mapper.
+it will map result set objects with class objects.
+
