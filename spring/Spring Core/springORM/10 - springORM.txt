@@ -1,0 +1,46 @@
+Spring ORM - spring with ORM Frameworkds
+ORM- Object Relational Mapping
+   ORM framework tools - Hibernate, toplink, iBatis
+
+Spring with Hibernate 
+we will get hiberante template in spring 
+- less code is required
+- Easy to test
+- Better exception handling (spring have better exception handling)
+- Integrated Trasaction management
+
+Working with database
+earlier 
+    java program -----> JDBC -------> Database
+                JDBC Approach
+
+so we use ORM for this process -> use JDBC internally
+
+we make a class 
+according to table      <-----ORM------>      database Table
+
+we will send object to ORM and then ORM will return object in case we need some data.
+
+HibernateTemplate - it provides all the functionality that we need to do with out database.
+    - Save
+    - Update
+    - Insert
+    - Get
+    - LoadALL
+
+How to work with Spring ORM
+
+    eg product Dao      
+    Dao Class           --------> Hibernate Template ------------> SessionFactory       -----------> 
+Dao - data access object                                         it is an interface
+    Interface                                                   (can not create object of it)   
+        |                                                               ^
+        |                                                               |
+        |                                                               |
+    productDaoImpl                                                      |                                    
+                                    dataSource ------->            localSessionFactoryBean
+                                    database properties        (it is implementaion classof session Factory)        
+                                    url, username, password         1. dataSource
+                                                                    2. Hiberante Properties - sql property etc
+                                                                    3. AnnotatedClass      - which all classes is entity
+JPA -  specification by oracle, implementation is same as hibernate but there is difference in some clas.                                                                

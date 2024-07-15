@@ -2,17 +2,22 @@ package com.spring.jdbc.dao;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Component;
 
 import com.spring.jdbc.entities.Student;
 
+@Component("studentDao")
 public class StudentDaoImpl implements StudentDao{
-
+	
+	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	public JdbcTemplate getJdbcTemplate() {
 		return jdbcTemplate;
 	}
+	@Autowired
 	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
 	}
@@ -48,8 +53,8 @@ public class StudentDaoImpl implements StudentDao{
 	public List<Student> getAllStudents() {
 		// selecting multiple students
 		String query = "select * from student";
-		List<Student> student= this.jdbcTemplate.query(query, new RowMapperImpl());
-		return null;
+		List<Student> students= this.jdbcTemplate.query(query, new RowMapperImpl());
+		return students;
 	}
 	
 	
