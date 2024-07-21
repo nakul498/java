@@ -7,6 +7,8 @@ import com.spring.orm.entities.Student;
 public class StudentDao {
 
 	private HibernateTemplate hibernateTemplate;
+	
+	//save student
 	public int insert(Student student) {
 		//insert
 		Integer i = (Integer)this.hibernateTemplate.save(student);

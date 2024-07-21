@@ -5,7 +5,43 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
-
+	
+	<!--	DataSource-->
+	<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" name="ds">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+		<property name="url" value="jdbc:mysql://localhost:3306/springjdbc"/>
+		<property name="username" value="root"/>
+		<property name="password" value="root"/>
+	</bean>		
+	
+	<!--	hiberante Properties-->
+	<bean class="org.springframework.orm.hibernate5.LocalSessionFactoryBean" name = "factory">
+		
+		<property name="dataSource" ref="ds"> </property>
+		<property name = "hibernameProperties">
+			<props>
+				<prop key= "hibernate.dialect">org.hibernate.dialect.MySQL57Dialect</prop>
+				<prop key="hibernate.show_sql">true</props>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+			</props>
+		</properties>
+	
+		<!--	annotation Properties-->
+		<property name= "annotatedClasses">
+			<list>
+				<value>com.spring.orm.entities.Student</value> 
+			</list>
+		</property>
+	</bean>		
+	<bean class="org.springframework.orm.hibernate5.HibernateTemplate" name = "hiberanteTemplate">
+		<property name = "sessionafactory" ref=""></property>
+		
+		
+		
+	</bean>		
+	<bean class= "com.spring.orm.entities.Student" name="studentDao">
+		<property name = "hibernateTemplate" ref=""></property>
+	</bean>
 			
 			
 </beans>			
