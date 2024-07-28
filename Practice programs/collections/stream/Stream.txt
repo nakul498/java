@@ -1,0 +1,177 @@
+Steam is a pipeline trrough which our data/ element passes and we can add various opertations on the pileline like sorting 
+it is very helpfull while using bulk data or we can use parallel processing.
+
+collection - > create stream -> intermediate operations eg filter, sort ->Terminal operations
+intermediate operation will give stream of data
+they are lazy in nature - > will executed when terminal operation is invoked.
+terminal operation is invoked only once after that stream is closed.
+original data is not modified after using a stream, original data is not changed.
+terminal opperation -> count, reduce, etc..
+Different ways to create a stream
+    1. from collection
+        eg List<Integer> list = new Array.asList(112,32,43,234);
+        Stream<Integer> streamFromList = salaryList.stream();
+
+    2. from Array
+         Integer[] salaryArray = {233,43243,5,45,234};
+         Stream<Integer> streamFromInteger = Arrays.Stream(salaryArray);   
+
+    3. from static Method
+        Stream<Integer> streamFromStaticMethod Stream.of(123,4325,453,23,54,23);        
+
+    4. Stream.Builder<Integer> streamBuilder = Stream.builder();
+        streamBuilder.add(123).add(32).add(324);  
+        Stream<Integer> streamFromStreamBuilder = streamBuilder.build();
+
+    5. From Stream Iterate
+        Stream<Integer> streamfromIterate = Stream.Iterate(54, (Integer n) -> n * 100).limit(5)
+        here loop will go on and start from 54, each element will be multiplied with 100 and it will stop at 5 elements    
+
+
+ intermediate operation
+ 1. filter - > filter the element
+ eg 
+    Stream<String> nameStream = Stream.of("hello", "Everyone", "how", "are", "you");
+    Stream<String> filterStream = nameStream.filter(String name -> name.length() <= 3)
+    List<String> filteredNameList = filteredNameList.collect(Collectors.toList());
+
+
+2. map(Function <T,R> mapper ) - > it is used to tranform each value.
+ Stream<String> nameStream = Stream.of("hello", "Everyone", "how", "are", "you");
+ Stream<String> filteredNames = nameStream.map((Stream name)-> name.tpLowerCase();
+
+ 
+3. flatMap(function<T, Stream <R>>mapper)
+
+List<List<String>> list = Array.asList(
+    Array.asList("I", "Love", "Java"),
+    Array.asList("CONCEPTS", "ARE", "CLEAR").
+    Array.asLiast("ITS","VERY", "EASY")
+);
+
+Stream<String> wordList = sentenceList.Stream().FlatMap((List<String> sentence)->sentence.stream());
+
+Stream<String> wordList2 = sentenceList.stream().flatMap(List<String> sentence)-> sentence.stream().map((String value) -> value.toLowerCase());
+
+
+4. distinct() = it removes duplicate elements
+Integer[] arr = {1,2,3,4,4,2,4,1}
+Stream<Integer> arr = Arrays.stream(arr).distinct();
+
+5. sorted() = sort the array
+Integer[]arr = {3,4,2,5,6,2,3,6,3}
+Stream<Integer> arr = Arrays.stream(arr).sorted();
+
+Stream<Integer> arr= Attays.Stream(arr).sorted((Integer val1>vsl2) -> val2-val1)
+to print in desending order(we added comparetor in sorted)
+
+6. peek(Consumer<T> action)
+
+List<Integer> number =Arrays.asList(2,2,3,1,4,5);
+Stream<Integer> numberStream = numbers.stream()
+            .filter((Integer val)-> val>2)
+            .peek((Integer val)->System.out.println(val)) 
+            .map(Integer val)-> -1*val);
+
+List<Integer> numberList = numberStrem.collect(Collectors.toList());            
+
+
+7. limit(long maxsize)
+List<Integer> number =Arrays.asList(2,2,3,1,4,5);
+Stream<Integer> numberStream = numbers.stream().limit(4);
+ist<Integer> numberList = numberStrem.collect(Collectors.toList());            
+
+8. skip(long n) it will skip first n elements
+List<Integer> number =Arrays.asList(2,2,3,1,4,5);
+Stream<Integer> numberStream = numbers.stream().skip(4);
+ist<Integer> numberList = numberStrem.collect(Collectors.toList());            
+
+9. mapToInt(ToIntFuncton<T> mapper)
+List<String> number =Arrays.asList(2,2,3,1,4,5);
+
+IntStream number = number.stream().mapToInt((String s) -> Integer.parseInt(s));
+int[] numberArray = number.toArray();
+
+Terminal operations
+
+1.forEach(Consumer<T> action)
+List<Integer> number = Arrays.asList(2,45,2,1);
+number.stram()
+      .filter((Interger val)-> val>3)
+      .forEach((Integer val)->System.out.println(val));
+
+2. toArary()
+List<Integer> number = Arrays.asList(2,45,2,1);
+Object[] filterArray = number.stream()
+                            .filter((Integer val) ->val >3)
+                            .toArray();
+Integer[] filterArray = number.stream()
+                            .filter((Integer val)-> val>3)
+                            .toArray((int size) -> new Integer[size]);
+
+3. reduce(BinaryOperation<T> accumulator)   
+    List<Integer> number = Arrays.asList(2,45,2,1); 
+
+    Optional<Integer> reduceValue = number.stream()
+                        .reduce((Integer val1, Integer val2)-> val1+val2);
+
+    System.out.println(reduceValue.get());     
+
+
+4. collect(Collector<T,A,R> collector) -> can be used to collect elements of stram to list
+List<Integer> numbers= Arrays.asList(2,1,4,5,10);
+List<Integer> filteredNumber = numbers.stream()                
+                .filter((Integer val)-> val>3)
+                .collect(Collectors.toList());
+
+5. min(Comparator<T> comparator) and max(Comparator<T> comparator)               
+List<Integer> numbers= Arrays.asList(2,1,4,5,10);
+
+Optional <Integer> minvalue = numbers.stream()                
+                .filter((Integer val)-> val>3)
+                .min(Integer val1, Integer val2) -> val1-val2);
+                //min actually gives first value of the list i.e 1, the comparator is creating  a list in assending order now
+                //but if we change to decending order like
+                 .min(Integer val1, Integer val2) -> val2-val1);
+                //it will return 10
+    System.out.println(minvalue.get());   
+
+
+6.  count() -> return number of elements present in stream 
+
+List<Integer> numbers= Arrays.asList(2,1,4,5,10);
+
+Optional <Integer> minvalue = numbers.stream()                
+                .filter((Integer val)-> val>3)
+                .count();
+
+7. anyMatch(predicate<T> predicate) -> chaeck if any value in stream matches the  predicate then return boolean value 
+
+List<Integer> number = Array.asList(2,3,42,4);
+boolean hasValueGreaterThanThree = number.stream()
+                        .anyMatch((Integer val)> val>3);
+
+8. allMatch(predicate<T> predicate) 
+    List<Integer> number = Array.asList(2,3,42,4);
+boolean hasValueGreaterThanThree = number.stream()
+                        .allMatch((Integer val)> val>3);
+
+9. noneMatch(predicate<T> predicate)     
+    List<Integer> number = Array.asList(2,3,42,4);
+boolean hasValueGreaterThanThree = number.stream()
+                        .noneMatch((Integer val)> val>3); 
+                        
+10. findFirst()
+     List<Integer> number = Array.asList(2,3,42,4);
+Optional <Integer> firstvalue = number.stream() 
+                    .filter((Integer val)-> val>3)
+                    .findFirst();      
+        sout(firstvalue.get())    
+
+ findAny -> return any value of the stream
+
+Parral Stream -> helps to perform the operation on stream concurrently, taking advantage of multi core CPU
+parrallelStrean() method is used instead of regular stream() method.
+internally it does:
+1. task splitting : it uses "spliterator" function to split the data into multiple chunks.
+2. task submission and parallel processing : uses fork-Join techniqye.

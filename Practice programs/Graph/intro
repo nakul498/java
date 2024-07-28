@@ -1,0 +1,27 @@
+GRAPHS
+It is network of nodes
+- vertex - here A,B,C is vertex/node
+        A ----- B------C
+
+- edge the path is edge
+    - directional
+    A--------> B-------->C
+    - bidirectional/ undirectional 
+    A-------B--------C
+    no direction is specified
+
+    - weighted ( it is associated with edges)
+        10      14
+    A--------B--------C
+
+    - unweighted
+    A-------B---------C
+
+Storing a graph
+
+1. Adjacency List (most common/ efficient)
+2. adjancency matrix
+3. edge list 
+4. 2d matrix
+
+Adjacency list -> list of list

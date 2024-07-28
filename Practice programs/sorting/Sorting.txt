@@ -1,0 +1,6 @@
+Sorting 
+
+There are various methods to sort an array, each with its own advantages and use case.
+1. Bubble Sortin
+Bubble sort repeatedly steps through the list, compares adjacent elements, and swaps them if they are in wrong order. the pass through the list repeated util the list is sorted.
+
