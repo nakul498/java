@@ -25,3 +25,22 @@ Storing a graph
 4. 2d matrix
 
 Adjacency list -> list of list
+eg
+    0---2
+        |\
+        | \
+        3--1
+in this case size of graph is equal to number of verteces i.e 4 
+
+vertex-wise
+0 -> {0,2} source, destination
+1 -> {1,2},{1,3}
+2 -> {2,0},{2,1},{2,3}
+3 -> {3,1}, {3,2}
+
+ArrayList<Edge> graph[V]
+static class edge{
+    int src 
+    int dest
+}
+
