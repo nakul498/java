@@ -27,10 +27,10 @@ public class IntegerToString {
 
         StringBuilder words = new StringBuilder();
         int index = 0;
-
+        
         while (number > 0) {
             int chunk = number % 1000;
-            if (chunk != 0) {
+            if (chunk != 0) {  
                 String chunkWords = convertChunk(chunk);
                 words.insert(0, chunkWords + THOUSANDS[index] + " ");
             }
