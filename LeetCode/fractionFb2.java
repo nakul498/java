@@ -9,8 +9,10 @@ public class fractionFb2 {
             int i=0,num=0, den=0,sign=0;
             int length = s.length();
                // System.out.println("before loop");
+            int fnum = 0, fden = 1;   
             for(;i<length;i++){
-                if(s.charAt(0)=='-'){
+                num=0; den=0;
+                if(s.charAt(i)=='-'){
                     sign = -1;
                     i++;
                 }
@@ -23,19 +25,48 @@ public class fractionFb2 {
                 //    System.out.println(s.charAt(i)-'0'+"  "+num);
                     i++;
                 }
+                    System.out.println(sign);
                     num=num*sign;
+                    System.out.println(num);
                 if(s.charAt(i)=='/')
                     i++;
                 while(i<length && Character.isDigit(s.charAt(i))){                                                                                                                                                                                                                     
                     den=den*10+(s.charAt(i)-'0');
                     i++;
+                } 
+                if(!Character.isDigit(s.charAt(i-1))){
+                    i--;
                 }
+                fnum = fnum * den + (num*fden);
+                fden = fden * den;
              //   System.out.println("/");
-                System.out.println(num+"/"+den);
+                System.out.println(fnum+"/"+fden);
             }
+            int gcf = gcf(fnum, fden);
+            //System.out.println(gcf);
+             fnum= fnum/gcf;
+             fden = fden/gcf;
+             System.out.println(fnum+"/"+fden);
+
         }
         catch(Exception E){
             System.out.println(E);
         }
-    }   
+    }
+    static int gcf(int a, int b){
+            
+        if (b == 0) {
+            return a;
+        }
+        return gcf(b, a % b);
+    }
+    // static int gcf(int a, int b){
+    //     int temp;
+    //     while(a%b!=0){
+    //         temp=a%b;
+    //         a=b;
+    //         b=temp;
+    //     }
+    //     return b;
+    // }
 }
