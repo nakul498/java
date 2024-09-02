@@ -1,80 +1,66 @@
 import java.util.*;
-class randomCheck{
-    public static void main(String args []){
-        Scanner sc = new Scanner(System.in);
-        int length, num,i=0;
-        num = sc.nextInt();  // 678 687 355 898
-        char c; 
-        // String[] once = {"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
-        // String[] tens ={"Ten","Twenty","Thirty", "Fourty", "Fifty", "Sixty","Seventy","Eighty","Ninety"};
-
-        String[] once = {"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
-        String[] teens = {"Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"};
-        String[] tens = {"Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"};
-        String[] nopl = {"Hundred", "Thousand", "Million", "Billion"};
 
 
-
-        // String[] nopl = {"Thousand", "Million","Billion"};
-        //String revNum = new StringBuilder(String.valueOf(num)).reverse().toString(); //
-        //System.out.println("Reversed String is: "+ revNum);
-        String revNum = new StringBuilder(String.valueOf(num)).toString();
-        length = revNum.length(); // 12
-        System.out.println("Length is: " + length);
-        String finalString = "";
-        int x = length %3;
-        c=revNum.charAt(i);
-        if(x==2){
-            if(c=='1'){
-                c=revNum.charAt(i+1);
-                finalString = finalString.concat(teens[(c-'0')-1]);
-            }
-            else{
-                finalString = finalString.concat(tens[(c-'0')-1]+" "+once[(c-'0')-1]+" ");   
-            }
-            i=2;  
-        } 
-        else if(x==1){
-            finalString = finalString.concat(once[(c-'0')-1]+" ");
-            i=1;
+public class randomCheck{
+    static class Edge{
+        int src;
+        int dest;
+        Edge(){}
+        Edge(int src, int dest){
+            this.src = src;
+            this.dest = dest;
         }
-        //c = revNum.charAt(i);
-        int r=length/3; // 4
-        System.out.println("r is " + r);
-        x=3;
-        for(; i< length;i++){
-            c=revNum.charAt(i);
-            System.out.println("Char at "+ i +"th positon is "+c);
-            if(x==3){
-                finalString = finalString.concat(once[(c-'0')-1]+" ");
-                finalString = finalString.concat(nopl[0]+" ");
-                x--;
-                continue;
+    }
+    
+    static void createGraph(ArrayList<Edge> graph[]){
+        for(int i=0;i<graph.length;i++){
+            graph[i]= new ArrayList<>();
+        }
+        graph[0].add(new Edge(0,1));
+        graph[0].add(new Edge(0,2));
 
-            }
-            if(x==2){
-                if(i==length-2){
-                    if(c=='1'){
-                        c=revNum.charAt(i+1);
-                        finalString = finalString.concat(teens[(c-'0')-1]);
-                        break;
-                    }
-                }
-                finalString = finalString.concat(tens[(c-'0')-1]+" ");   
-                x--;
-                continue;
-            }
-            if(x==1){
-                finalString = finalString.concat(once[(c-'0')-1]+" ");
-                x--;
-                x=3;
-                if((r-1>=0)&&(i+2<length)){
-                    finalString = finalString.concat(nopl[r-1]+" ");
-                    r--;
-                }
-                continue;
+        graph[1].add(new Edge(1, 0));
+        graph[1].add(new Edge(1, 3));
+        
+        graph[2].add(new Edge(2, 0));
+        graph[2].add(new Edge(2, 4));
+        
+        graph[3].add(new Edge(3, 1));
+        graph[3].add(new Edge(3, 4));
+        graph[3].add(new Edge(3, 5));
+       
+        graph[4].add(new Edge(4, 2));
+        graph[4].add(new Edge(4, 3));
+        graph[4].add(new Edge(4, 5));
+        
+        graph[5].add(new Edge(5, 3));
+        graph[5].add(new Edge(5, 4));
+        graph[5].add(new Edge(5, 6));
+        
+        graph[6].add(new Edge(6, 5));
+    }
+    static void printAllPaths(ArrayList<Edge> graph[], int src, int tar, String path, boolean[]vis){
+        if(src== tar){
+            System.out.println(path);
+            return;
+        }
+        for(int i=0;i<graph[src].size();i++){
+            Edge e = graph[src].get(i);
+            if(!vis[e.dest]){
+                vis[e.dest]=true;
+                printAllPaths(graph, e.dest, tar, path+"=>"+e.dest, vis);  
+                vis[e.dest]=false;
             }
         }
-        System.out.println(finalString);
+    }
+    public static void main(String[] args) {
+        int v = 7;
+        ArrayList<Edge> graph[] = new ArrayList[v];
+        createGraph(graph);
+        int src = 0;
+        int tar = 5;
+        boolean vis[]= new boolean[v];
+        vis[src] =true;
+        printAllPaths(graph, src, tar, ""+src, vis);
     }
 }
