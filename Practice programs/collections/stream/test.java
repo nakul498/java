@@ -6,6 +6,6 @@ public class test {
         list.add(33);
         list.add(53);
         list.add(87);
-        int arr[] = list.stream().sorted().mapToInt(Integer::intValue).
+        int arr[] = list.stream().sorted().mapToInt(Integer::intValue);
     }
 }

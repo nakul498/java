@@ -4,7 +4,7 @@ public class genericClass {
 
  public static void main(String[] args) {
     TestingGenerics<Integer> t = new TestingGenerics<Integer>(100);
-    System.out.println(t.getObject());
+    System.out.println(t.getObject() + 10);
  }   
 
 }
