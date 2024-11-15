@@ -1,6 +1,9 @@
 import java.util.*;
-
-public class randomCheck{
+public class Pattern1 {
+//    1
+//   232
+//  34543
+// 4567654     
     public static void main(String[] args) {
         int x=1,y;
         for(int i=0;i<4;i++){
@@ -26,7 +29,4 @@ public class randomCheck{
         }
     }
 }
-//    1
-//   232
-//  34543
-// 4567654         
+    
