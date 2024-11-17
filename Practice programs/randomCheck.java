@@ -1,32 +1,12 @@
 import java.util.*;
-
-public class randomCheck{
+class randomCheck{
     public static void main(String[] args) {
-        int x=1,y;
-        for(int i=0;i<4;i++){
-            for(int j = 0;j<3-i;j++)
-                System.out.print("*");
-                int flag=0; y= i+1;
-            for(int k = 1; k<=x;k++ ){
-                System.out.print(y);
-                if(flag==0){
-                    if(y==x){
-                        flag=1;
-                        y--;
-                    }
-                    else   
-                        y++;    
-                }else  
-                    y--;
-
-            }
-            x+=2;
-            System.out.println("");   
-
-        }
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        double sqrt= Math.sqrt(5);
+        double p1 = (1+sqrt)/2;
+        double ans = Math.round(Math.pow(p1, n)/sqrt);
+        System.out.println(ans);
     }
 }
-//    1
-//   232
-//  34543
-// 4567654         
+// 1 1 2 3 5 8 13 21
