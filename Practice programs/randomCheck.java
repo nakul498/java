@@ -2,11 +2,16 @@ import java.util.*;
 class randomCheck{
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        double sqrt= Math.sqrt(5);
-        double p1 = (1+sqrt)/2;
-        double ans = Math.round(Math.pow(p1, n)/sqrt);
-        System.out.println(ans);
+        String s = sc.next();
+        int start =0, end= s.length()-1;
+        while(start<end){
+            if(s.charAt(start)!=s.charAt(end)){
+                System.out.println("Not a palindrome");
+                return;
+            }
+            start++; end--;
+        }
+        System.out.println("ohh yes it was a palidrome");
+        sc.close();
     }
 }
-// 1 1 2 3 5 8 13 21
