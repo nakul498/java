@@ -1,17 +1,26 @@
 import java.util.*;
-class randomCheck{
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        String s = sc.next();
-        int start =0, end= s.length()-1;
-        while(start<end){
-            if(s.charAt(start)!=s.charAt(end)){
-                System.out.println("Not a palindrome");
-                return;
+class randomCheck extends tester{
+     public static void main(String[] args) {
+        int count =1;
+        String sentence = "i love eating burger";
+        sentence = sentence.trim(); 
+        String seq = "burg"; 
+        StringBuffer br = new StringBuffer(sentence);
+        Set<Integer> set = new TreeSet<>();
+        x
+        int index = br.indexOf(seq);
+        if(index == -1)
+            System.out.println(index);
+        else{
+            for(int i =0; i<index;i++){
+                if(sentence.charAt(i)==' ');
+                    count++;
             }
-            start++; end--;
+            return count;
         }
-        System.out.println("ohh yes it was a palidrome");
-        sc.close();
+          
+       
+        
     }
+    
 }
